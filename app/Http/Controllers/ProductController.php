@@ -40,7 +40,8 @@ class ProductController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $product = Product::findOrFail($id);
+        return view('produits.show', compact('product'));
     }
 
     /**
@@ -48,7 +49,8 @@ class ProductController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $product = Product::findOrFail($id);
+        return view('produits.edit', compact('product'));
     }
 
     /**
@@ -56,7 +58,11 @@ class ProductController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $product = Product::findOrFail($id);
+
+        $product->update($request->all());
+
+        return redirect()->route('products')->with('success', 'produit modifier avec succès');
     }
 
     /**
@@ -64,6 +70,8 @@ class ProductController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $product = Product::findOrFail($id);
+        $product->delete();
+        return redirect()->route('products')->with('success', 'produit supprimé avec succès');
     }
 }

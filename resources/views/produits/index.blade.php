@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
-@section('title', 'Liste Produit')
+@section('title', 'Home Produit')
 
 @section('contents')
 
     <div class="d-flex align-items-center justify-content-between">
         <h1 class="mb-0">List Produit</h1>
-        <a href="{{ route('products.create') }}" class="btn btn-primary">Add Produit</a>
+        <a href="{{ route('products.create') }}" class="btn btn-primary btn-sm">Add Produit</a>
     </div>
     <hr>
     @if(Session::has('success'))
@@ -25,7 +25,7 @@
                 <th>Action</th>
             </tr>
         </thead>
-        <tbody>+
+        <tbody>
             @if($product->count() > 0)
                 @foreach($product as $rs)
                     <tr>
@@ -36,9 +36,13 @@
                         <td class="align-middle">{{ $rs->description }}</td>
                         <td class="align-middle">
                             <div class="btn-group" role="group" aria-label="Basic exemple">
-                                <a href="" class="btn btn-secondary">Détail</a>
-                                <a href="" class="btn btn-warning">Modifier</a>
-                                <button class="btn btn-danger m-0">Supprimer</button>
+                                <a href="{{ route('products.show', $rs->id) }}" type="button" class="btn btn-sm btn-secondary">Détail</a>
+                                <a href="{{ route('products.edit', $rs->id) }}" type="button" class="btn btn-sm btn-warning">Modifier</a>
+                                <form action="{{ route('products.destroy', $rs->id) }}" method="post" type="button" >
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-danger btn-sm m-0">Supprimer</button>
+                                </form>
                             </div>
                         </td>
                     </tr>
