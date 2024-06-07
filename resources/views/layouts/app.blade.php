@@ -23,7 +23,6 @@
     <!-- Custom styles for this page -->
     <link href="{{ asset('admin_assets/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
 
-
 </head>
 
 <body id="page-top">
@@ -56,7 +55,6 @@
                     @yield('contents')
                     
                 </div>
-
             </div>
             <!-- End of Main Content -->
 
@@ -94,7 +92,6 @@
             </div>
         </div>
     </div>
-
     
     <!-- Bootstrap core JavaScript-->
     <script src="{{ asset('admin_assets/vendor/jquery/jquery.min.js') }} "></script>
@@ -110,7 +107,6 @@
     <script src="{{ asset('admin_assets/vendor/chart.js/Chart.min.js ') }}"></script>
     <script src="{{ asset('admin_assets/vendor/datatables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('admin_assets/vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
-
 
     <!-- Page level custom scripts -->
     <script src="{{ asset('admin_assets/js/demo/chart-area-demo.js ') }}"></script>

@@ -44,7 +44,6 @@ Route::middleware('auth')->group(function(){
         Route::delete('destroy/{id}', 'destroy')->name('products.destroy');
     });
 
-
     Route::get('/profile', [App\Http\Controllers\AuthController::class, 'profile'])->name('profile');
 
 });
